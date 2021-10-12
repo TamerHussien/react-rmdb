@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Star = () => React.createElement('div', null, 'Start here.')
-
-const App = () => {
-  return Star();
+function App() {
+  return (
+    <div className="App">
+      Start here.
+    </div>
+  );
 }
 
 export default App;
