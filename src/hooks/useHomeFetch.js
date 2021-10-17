@@ -35,8 +35,9 @@ export const useHomeFetch =() => {
     // initial render
     // Array of conditions to run the effect here empty arr means it will run once in the beginning
     useEffect(() => {
-        fetchMovies(1)
-    }, [])
+        setState(initialState);
+        fetchMovies(1, searchTerm)
+    }, [searchTerm])
 
-    return {state, loading, error, setSearchTerm}
+    return {state, loading, error, searchTerm ,setSearchTerm}
 }
