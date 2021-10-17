@@ -6,6 +6,7 @@ import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 import HeroImage from "./HeroImage";
 import Grid from "./Grid";
 import Thumb from './Thumb'
+import Spinner from "./Spinner";
 // Hook
 import { useHomeFetch } from "../hooks/useHomeFetch";
 // Image
@@ -20,7 +21,6 @@ const Home = () => {
 
     return (
         <>
-
         {hero ?
             <HeroImage 
                 image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${hero.backdrop_path}`}
@@ -37,7 +37,8 @@ const Home = () => {
                     movieId={movie.id}
                 />
             ))}
-        </Grid>          
+        </Grid>
+        {loading ? <Spinner/> : null}          
         </>
     )
 }
