@@ -8,6 +8,7 @@ import Grid from "./Grid";
 import Thumb from './Thumb'
 import Spinner from "./Spinner";
 import SearchBar from "./SearchBar"
+import ShowMoreButton from "./ShowMoreButton"
 // Hook
 import { useHomeFetch } from "../hooks/useHomeFetch";
 // Image
@@ -39,7 +40,10 @@ const Home = () => {
                 />
             ))}
         </Grid>
-        {loading ? <Spinner/> : null}          
+        {loading && <Spinner/>}
+        {state.page < state.total_pages && !loading && (
+            <ShowMoreButton text='Load More'/>
+        )}          
         </>
     )
 }
