@@ -8,6 +8,7 @@ import BreadCrumbs from './BreadCrumbs';
 import Grid from './Grid'
 import Spinner from './Spinner';
 import MovieInfo from './MovieInfo';
+import MovieInfoBar from "./MovieInfoBar";
 //Hook
 import { useMovieFetch } from "../hooks/useMovieFetch";
 
@@ -19,13 +20,17 @@ const Movie = () => {
     const {movieId} = useParams();
     const {state: movie, loading, error} = useMovieFetch(movieId)
 
-    console.log(movie);
     if(loading) return <Spinner/>
     if(error) return <div>something went wrong...</div>
     return (
         <>
         <BreadCrumbs movieTitle={movie?.original_title}/>
         <MovieInfo movie={movie}/>
+        <MovieInfoBar 
+            time={movie.runtime} 
+            budget={movie.budget} 
+            revenue={movie.revenue} 
+        />
         </>
     )
 }
