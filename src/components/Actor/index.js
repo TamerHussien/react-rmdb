@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from 'prop-types';
 // styles
 
 import { Wrapper, Image } from "./Actor.styles";
@@ -11,5 +11,11 @@ const Actor= ({actorName, character, imageUrl}) => (
         <p>{character}</p>
     </Wrapper>
 )
+
+Actor.propTypes = {
+    actorName: PropTypes.string,
+    character: PropTypes.string,
+    imageUrl: PropTypes.string,
+}
 
 export default Actor;
